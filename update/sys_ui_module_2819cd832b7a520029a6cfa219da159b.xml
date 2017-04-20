@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_ui_module">
+    <sys_ui_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="Incident Questionnaire">a819cd832b7a520029a6cfa219da159a</application>
+        <filter/>
+        <name>Incident Questionnaire Table</name>
+        <order/>
+        <path/>
+        <path_relative_to_root>false</path_relative_to_root>
+        <roles>x_kasp_incident_qu.user</roles>
+        <sys_class_name>sys_ui_module</sys_class_name>
+        <sys_created_by>dipsha01</sys_created_by>
+        <sys_created_on>2016-04-19 19:34:05</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>2819cd832b7a520029a6cfa219da159b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Incident Questionnaire Table</sys_name>
+        <sys_package display_value="Incident Questionnaire" source="x_kasp_incident_qu">67098d032b7a520029a6cfa219da159b</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Incident Questionnaire">67098d032b7a520029a6cfa219da159b</sys_scope>
+        <sys_update_name>sys_ui_module_2819cd832b7a520029a6cfa219da159b</sys_update_name>
+        <sys_updated_by>dipsha01</sys_updated_by>
+        <sys_updated_on>2016-04-19 19:34:05</sys_updated_on>
+        <table>x_kasp_incident_qu_incident_questionnaire_table</table>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+    </sys_ui_module>
+</record_update>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Incident Questionnaire Table" max_length="40" name="x_kasp_incident_qu_incident_questionnaire_table" type="collection">
+        <element label="Active" max_length="40" name="active" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="Comments" max_length="1000" name="comments" type="string"/>
+        <element label="Configuration Item" max_length="32" name="configuration_item" reference="cmdb_ci" type="reference"/>
+        <element label="Order" max_length="40" name="order" type="integer"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Questions" max_length="60" name="questions" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" dependent="configuration_item" dependent_on_field="configuration_item" label="Subcategory" max_length="40" name="subcategory" type="string" use_dependent_field="true">
+            <choice>
+                <element dependent_value="c7946f2cb1f740407793fd83f4224915" label="Account Locked (AD)" sequence="0" value="Account Locked (AD)"/>
+                <element dependent_value="551185301339d60053dc71522244b0e8" label="Activation" sequence="0" value="Activation"/>
+                <element dependent_value="ea284eb541556c0077931b7e8c2e70b2" label="File Restore" sequence="0" value="File Restore"/>
+                <element dependent_value="5e97b65713025e4053dc71522244b092" label="Others" sequence="0" value="Others"/>
+                <element dependent_value="1e3f55c40a0a3c1c00d76d45801d4a98" label="Password Reset" sequence="0" value="Password Reset"/>
+                <element dependent_value="cf5f08aa0a0a3c1c008309f7b80afe7c" label="Password Reset" sequence="0" value="Password Reset"/>
+                <element dependent_value="13f268f80a0a3c1c008a81bd556413db" label="Password Reset" sequence="0" value="Password Reset"/>
+                <element dependent_value="c875018b0a0a3c1c0033130b7aa95828" label="Password Reset" sequence="0" value="Password Reset"/>
+                <element dependent_value="ad46616950b085006499eac314d73245" label="Sales Processing" sequence="0" value="Sales Processing"/>
+                <element dependent_value="a9266d6950b085006499eac314d732f7" label="Sales Processing" sequence="0" value="Sales Processing"/>
+                <element dependent_value="1c0abb5b88d6650098451ce1ad702a09" label="Unlock Order" sequence="0" value="Unlock Order"/>
+                <element dependent_value="c875018b0a0a3c1c0033130b7aa95828" label="Account Locked (AD)" sequence="1" value="Account Locked (AD)"/>
+                <element dependent_value="ad46616950b085006499eac314d73245" label="Connectivity" sequence="1" value="Connectivity"/>
+                <element dependent_value="1c0abb5b88d6650098451ce1ad702a09" label="Printing" sequence="1" value="Printing"/>
+                <element dependent_value="a9266d6950b085006499eac314d732f7" label="Returns" sequence="1" value="Returns"/>
+                <element dependent_value="c875018b0a0a3c1c0033130b7aa95828" label="Account Extension" sequence="2" value="Account Extension"/>
+                <element dependent_value="a9266d6950b085006499eac314d732f7" label="Credit Authorization" sequence="2" value="Credit Authorization"/>
+                <element dependent_value="a9266d6950b085006499eac314d732f7" label="Promo" sequence="3" value="Promo"/>
+                <element dependent_value="a9266d6950b085006499eac314d732f7" label="Unlock Order" sequence="4" value="Unlock Order"/>
+                <element dependent_value="a9266d6950b085006499eac314d732f7" label="Employee Maintenance - Account Locked" sequence="5" value="Account Locked"/>
+                <element dependent_value="a9266d6950b085006499eac314d732f7" label="Open/Close Variance" sequence="6" value="Open/Close Variance"/>
+                <element dependent_value="a9266d6950b085006499eac314d732f7" label="Employee Maintenance - Password Reset" sequence="7" value="Password Reset"/>
+                <element dependent_value="a9266d6950b085006499eac314d732f7" label="Employee Maintenance - Borrow" sequence="8" value="Borrow"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="configuration_item"/>
+        </index>
+    </element>
+</database>

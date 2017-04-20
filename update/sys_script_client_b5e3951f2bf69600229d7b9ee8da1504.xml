@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>subcategory</field>
+        <global>true</global>
+        <messages/>
+        <name>Open Popup</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+	if (isLoading || newValue === '') {
+		return;
+	}
+	
+	var isCSC = g_user.hasRole('CSC');
+	
+	if(!isCSC){
+	
+		return;
+	}
+	
+	var questionAjax = new GlideAjax('x_kasp_incident_qu.incident_popup_utils');
+	questionAjax.addParam('sysparm_name', 'checkQuestions');
+	questionAjax.addParam('sysparm_ci', g_form.getValue('cmdb_ci'));
+	questionAjax.addParam('sysparm_sub_cat', g_form.getValue('subcategory'));
+	
+	var ajaxFunc = {
+		
+		returnAnswer:function(response){
+			var eventFound = response.responseXML.documentElement.getAttribute("answer");
+			
+			if(eventFound == 'true'){
+				
+				var gdw = new GlideDialogWindow('x_kasp_incident_qu_incident_popup');
+				gdw.setTitle('Obtain The Information Below!');
+				gdw.setSize(500,500);
+				gdw.setPreference('sysparm_ci', g_form.getValue('cmdb_ci'));
+				gdw.setPreference('sysparm_sub_cat', g_form.getValue('subcategory'));
+				
+				//Open the dialog window
+				gdw.render();
+				
+			}
+			
+		}
+	};
+	
+	questionAjax.getXML(ajaxFunc.returnAnswer);
+	
+}
+
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>sebgar01</sys_created_by>
+        <sys_created_on>2016-04-20 15:03:00</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>b5e3951f2bf69600229d7b9ee8da1504</sys_id>
+        <sys_mod_count>21</sys_mod_count>
+        <sys_name>Open Popup</sys_name>
+        <sys_overrides display_value="">global</sys_overrides>
+        <sys_package display_value="Incident Questionnaire" source="x_kasp_incident_qu">67098d032b7a520029a6cfa219da159b</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Incident Questionnaire">67098d032b7a520029a6cfa219da159b</sys_scope>
+        <sys_update_name>sys_script_client_b5e3951f2bf69600229d7b9ee8da1504</sys_update_name>
+        <sys_updated_by>dipsha01</sys_updated_by>
+        <sys_updated_on>2016-04-26 15:07:11</sys_updated_on>
+        <table>incident</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_kasp_incident_qu.incident_popup_utils</api_name>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>incident_popup_utils</name>
+        <script><![CDATA[var incident_popup_utils = Class.create();
+incident_popup_utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+	
+	checkQuestions:function(){
+		
+		var ci = this.getParameter('sysparm_ci');
+		var subCat = this.getParameter('sysparm_sub_cat');
+		
+		var rec = new GlideRecord('x_kasp_incident_qu_incident_questionnaire_table');
+		rec.addQuery('configuration_item', ci);
+		rec.addQuery('subcategory', subCat);
+		rec.query();
+		
+		if(rec.next()){
+			return "true";
+		}else{
+			return "false";
+		}
+		
+		
+	},
+	
+    type: 'incident_popup_utils'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>sebgar01</sys_created_by>
+        <sys_created_on>2016-04-20 15:40:37</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>c00dd9132b3a9600229d7b9ee8da1539</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>incident_popup_utils</sys_name>
+        <sys_package display_value="Incident Questionnaire" source="x_kasp_incident_qu">67098d032b7a520029a6cfa219da159b</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Incident Questionnaire">67098d032b7a520029a6cfa219da159b</sys_scope>
+        <sys_update_name>sys_script_include_c00dd9132b3a9600229d7b9ee8da1539</sys_update_name>
+        <sys_updated_by>sebgar01</sys_updated_by>
+        <sys_updated_on>2016-04-20 15:44:42</sys_updated_on>
+    </sys_script_include>
+</record_update>
